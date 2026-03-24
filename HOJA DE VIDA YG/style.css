@@ -1,0 +1,79 @@
+
+* {
+    margin: 0;
+    
+}
+
+
+.titulo {
+    text-align: center;
+}
+    
+.img_pequeña {
+    width: 180px;
+    height: auto;
+    
+}
+
+
+.tabla {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+
+
+
+
+.seccion {
+   background-color: rgb(153, 173, 216);
+   color:rgb(6, 8, 8);
+   font-size: 30px;
+}
+
+.contenido {
+    text-align: center;
+    margin :5px;
+    border: 2px solid black;
+    color:rgb(6, 8, 8);
+}       
+
+  
+
+
+.perfilprofesional {
+     background-color: rgb(153, 173, 216);
+     color:rgb(6, 8, 8);
+     font-size: 30px;
+    text-align: center;
+}
+
+
+.experiencia {
+    background-color: rgb(153, 173, 216);
+    color:rgb(6, 8, 8);
+    font-size: 30px;
+ text-align: center;
+}
+
+
+ .habilidades {
+    background-color: rgb(153, 173, 216);
+    color:rgb(6, 8, 8);
+    font-size: 30px; 
+     text-align: center;
+} 
+  
+
+
+  .educacion {
+    background-color: rgb(153, 173, 216);
+    color:rgb(6, 8, 8);
+    font-size: 30px; 
+     text-align: center;
+} 
+  
+
+
+
+   
