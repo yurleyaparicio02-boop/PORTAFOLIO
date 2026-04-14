@@ -1,0 +1,222 @@
+* {
+  margin: 0;                /* resetea márgenes en todos los elementos */
+  padding: 0;               /* resetea el padding en todos los elementos */
+  box-sizing: border-box;   /* el tamaño incluye borde y padding */
+}
+
+html, body {
+  height: 100vh;            /* llena toda la pantalla verticalmente */
+  overflow: hidden;         /* bloquea el scroll en el body */
+  font-family: "Segoe UI", "Helvetica Neue", sans-serif; /* tipografía global */
+}
+
+/*NAV*/
+nav {
+  background: #2c2c2c;                        /* fondo gris muy oscuro */
+  padding: 10px 40px;                          /* separación interna vertical y horizontal */
+  overflow: hidden;                             /* limpia floats internos */
+ }                      
+           
+
+.nombre-nav {
+  float: left;              /* posiciona el nombre a la izquierda */
+  color: white;             /* letra en blanco */
+  font-size: 18px;          /* tamaño moderado del texto */
+  font-weight: 300;         /* tipografía delgada */
+  line-height: 1.6;         /* alineación vertical del texto */
+}
+
+.nombre-nav strong {
+  font-weight: 700;         /* resalta el primer nombre en negrita */
+}
+
+.enlaces-nav {
+  float: right;             /* agrupa los enlaces a la derecha */
+  line-height: 1.6;         /* alinea verticalmente con el nombre */
+  padding: 0 50px;          /* espacio a los lados del grupo de enlaces */
+}
+
+.enlaces-nav a {
+  color: #cccccc;           /* enlaces en gris suave */
+  text-decoration: none;    /* elimina el subrayado */
+  margin-left: 28px;        /* espacio entre cada enlace */
+  font-size: 14px;          /* texto compacto */
+  letter-spacing: 0.5px;    /* ligero espaciado entre letras */
+  transition: color 0.2s;   /* transición suave de color */
+
+}
+
+.enlaces-nav a:hover,
+.enlaces-nav a.activo {
+  color: white;             /* blanco al activar o pasar el cursor */
+  font-weight: 600;         /* ligeramente más grueso al destacar */
+}
+
+/*MAIN*/
+main {
+  height: calc(100vh - 53px); /* descuenta el alto del nav */
+  overflow-y: auto;            /* permite el scroll solo aquí */
+}
+
+/*SECCIÓN 1 — INICIO*/
+.inicio {
+  background: #ffffff;      /*  fondo blanco */
+  padding: 20px 80px;       /* márgenes internos amplios */
+  overflow: hidden;         /* limpia los floats internos */
+  min-height: 420px;        /* altura mínima de la seccion  */
+  font-size: 20px;       /* tamaño de fuente */
+;
+}
+
+.imagen-inicio {
+  float: left ;              /* imagen anclada a la izquierda */
+  width: 50%;               /* mitad izquierda del contenedor */
+  text-align: center;       /* centra la imagen en su columna */
+        }
+
+.imagen-inicio img {
+  width: 100%;              /* imagen responsive dentro de su columna */
+  max-width: 600px;         /* límite de crecimiento de la imagen */
+}
+
+.texto-inicio {
+  float: right;       /* texto anclado a la derecha */
+  width: 50%;               /* mitad derecha del contenedor */
+       
+}
+
+.texto-inicio h1 {
+  font-size: 52px;          /* título llamativo y grande */
+  font-weight: 700;         /* negrita fuerte */
+  color: #000000;           /* color rojo principal */
+  margin-bottom: 20px;      /* separación con el párrafo */
+  line-height: 1.1;         /* título compacto sin mucho espacio entre líneas */
+  margin-top: 50px;
+}
+
+.texto-inicio p {
+  font-size: 20px;          /* texto cómodo para leer */
+  color: #555;              /* gris oscuro para el cuerpo */
+  line-height: 1.7;         /* interlineado amplio */
+  margin-bottom: 30px;      /* distancia antes del botón */
+
+}
+
+.boton-rojo-arriba {
+  background: #b52518;      /* botón en rojo principal */
+  color: white;             /* texto blanco */
+  border: none;             /* sin contorno */
+  padding: 12px 30px;      /* tamaño cómodo del botón */
+  font-size: 15px;          /* texto legible */
+  font-weight: 600;         /* texto con peso medio */
+  border-radius: 4px;       /* bordes ligeramente redondeados */
+  cursor: pointer;          /* indica que es clickeable */
+  text-decoration: none;    /* sin subrayado en enlaces */
+  transition: background 0.2s; /* cambio de color suave */
+  margin-left: 2px;
+}
+
+.boton-rojo {
+  background: #b52518;      /* botón en rojo principal */
+  color: white;             /* texto blanco */
+  border: none;             /* sin contorno */
+  padding: 14px 28px;       /* tamaño cómodo del botón */
+  font-size: 15px;          /* texto legible */
+  font-weight: 600;         /* texto con peso medio */
+  border-radius: 4px;       /* bordes ligeramente redondeados */
+  cursor: pointer;          /* indica que es clickeable */
+  text-decoration: none;    /* sin subrayado en enlaces */
+  transition: background 0.2s; /* cambio de color suave */
+  
+}
+
+
+
+
+/* SECCIÓN 2 — QUIEN SOY */
+.quien-soy {
+  background: #664642;      /* sección en rojo */
+  padding: 60px 80px;       /* espaciado generoso */
+  text-align: center;       /* contenido centrado */
+}
+
+.foto-perfil {
+  width: 200px;             /* tamaño fijo de la foto */
+  height: 200px;            /* altura igual al ancho */
+  border-radius: 50%;       /* recorte circular */
+  border: 6px solid white;  /* marco blanco alrededor */
+  margin: 0 auto 40px auto; /* centrado con espacio inferior */
+  object-fit: cover;        /* ajusta la imagen sin distorsión */
+}
+
+
+
+
+
+/*SECCIÓN 3 — PROYECTOS*/
+.proyectos {
+  background: #f2f2f2;      /* fondo neutro claro */
+  padding: 20px 40px;       /* espaciado interno */
+  overflow: hidden;         /* contiene las tarjetas flotantes */
+}
+
+.proyectos h2 {
+  font-size: 40px;          /* título de sección destacado */
+  font-weight: 700;         /* negrita */
+  color: #333;              /* casi negro */
+  text-align: center;       /* centrado horizontalmente */
+  margin-bottom: 40px;      /* separación con las tarjetas */
+}
+
+.contenedor-tarjetas {
+  overflow: hidden;         /* limpia los floats de las tarjetas */
+}
+
+.tarjeta {
+  float: left;              /* tarjetas en fila horizontal */
+  width: 23%;               /* cuatro tarjetas por fila */
+  margin-right: 2%;         /* espacio entre tarjetas */
+  background: white;        /* fondo blanco de cada tarjeta */
+  border-radius: 4px;       /* esquinas suavizadas */
+  overflow: hidden;         /* imagen respeta el border-radius */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* sombra discreta */
+  text-align: center;       /* contenido centrado */
+}
+
+.tarjeta:last-child {
+  margin-right: 0;          /* elimina margen en la última tarjeta */
+}
+
+.tarjeta img {
+  width: 100%;              /* imagen a todo el ancho de la tarjeta */
+  height: 320px;            /* altura uniforme en todas las tarjetas */
+  object-fit: cover;        /* recorte sin deformación */
+}
+
+.cuerpo-tarjeta {
+  padding: 20px 16px;       /* espacio interno del contenido */
+}
+
+.cuerpo-tarjeta h3 {
+  font-size: 17px;          /* nombre del proyecto */
+  font-weight: 600;         /* peso medio */
+  color: #333;              /* color oscuro */
+  margin-bottom: 12px;      /* separación con la descripción */
+}
+
+.cuerpo-tarjeta p {
+  font-size: 20px;          /* descripción en texto pequeño */
+  color: #777;              /* gris suave */
+  line-height: 1.6;         /* lectura fluida */
+  margin-bottom: 20px;      /* espacio antes del botón */
+}
+
+/*PIE DE PÁGINA*/
+footer {
+  background: #2c2c2c;      /* fondo oscuro  */
+  color: #aaa;              /*  texto blanco */
+  text-align: right;       /* texto centrado a la derecha  */
+  padding: 20px 65px 20px 0px;    /* espacio interno */
+  font-size: 13px;          /* tamaño de fuente*/
+  
+}
