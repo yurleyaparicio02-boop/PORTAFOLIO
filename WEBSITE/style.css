@@ -14,9 +14,8 @@ html, body {
 nav {
   background: #2c2c2c;                        /* fondo gris muy oscuro */
   padding: 10px 40px;                          /* separación interna vertical y horizontal */
-  overflow: hidden;  
-  margin: left;
- }                         /* evita desbordamiento de floats */
+  overflow: hidden;                             /* limpia floats internos */
+ }                      
            
 
 .nombre-nav {
@@ -34,7 +33,7 @@ nav {
 .enlaces-nav {
   float: right;             /* agrupa los enlaces a la derecha */
   line-height: 1.6;         /* alinea verticalmente con el nombre */
-padding: 0 50px;
+  padding: 0 50px;          /* espacio a los lados del grupo de enlaces */
 }
 
 .enlaces-nav a {
@@ -61,11 +60,11 @@ main {
 
 /*SECCIÓN 1 — INICIO*/
 .inicio {
-  background: #ffffff;      /* sección sobre fondo blanco */
+  background: #ffffff;      /*  fondo blanco */
   padding: 20px 80px;       /* márgenes internos amplios */
   overflow: hidden;         /* limpia los floats internos */
-  min-height: 420px; 
-  font-size: 20px;       /* evita que la sección colapse */
+  min-height: 420px;        /* altura mínima de la seccion  */
+  font-size: 20px;       /* tamaño de fuente */
 ;
 }
 
@@ -114,7 +113,7 @@ main {
   cursor: pointer;          /* indica que es clickeable */
   text-decoration: none;    /* sin subrayado en enlaces */
   transition: background 0.2s; /* cambio de color suave */
-  margin-left: 20px;
+  margin-left: 2px;
 }
 
 .boton-rojo {
@@ -214,10 +213,10 @@ main {
 
 /*PIE DE PÁGINA*/
 footer {
-  background: #2c2c2c;      /* mismo fondo oscuro que el nav */
-  color: #aaa;              /* texto en gris claro */
-  text-align: right;       /* texto centrado */
+  background: #2c2c2c;      /* fondo oscuro  */
+  color: #aaa;              /*  texto blanco */
+  text-align: right;       /* texto centrado a la derecha  */
   padding: 20px 65px 20px 0px;    /* espacio interno */
-  font-size: 13px;          /* texto discreto */
+  font-size: 13px;          /* tamaño de fuente*/
   
 }
