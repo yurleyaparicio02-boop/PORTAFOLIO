@@ -220,3 +220,94 @@ footer {
   font-size: 13px;          /* tamaño de fuente*/
   
 }
+
+/* RESPONSIVE  */
+
+@media (max-width: 768px) {
+
+  /* ── NAV ── */
+  nav {
+    padding: 10px 20px;
+    text-align: center;
+  }
+
+  .nombre-nav {
+    float: none;        
+    display: block;      
+    text-align: center;
+    margin-bottom: 8px;
+  }
+
+  .enlaces-nav {
+    float: none;         
+    display: block;
+    text-align: center;
+    padding: 0;
+  }
+
+  .enlaces-nav a {
+    margin-left: 12px;
+    margin-right: 12px;
+  }
+
+
+  /* ── SECCIÓN 1: INICIO ── */
+  .inicio {
+    padding: 30px 20px;
+  }
+
+  .imagen-inicio {
+    float: none;         
+    width: 100%;         
+    margin-bottom: 20px;
+  }
+
+  .texto-inicio {
+    float: none;         
+    width: 100%;
+  }
+
+  .texto-inicio h1 {
+    font-size: 32px;     
+    margin-top: 10px;
+  }
+
+  .texto-inicio p {
+    font-size: 16px;
+  }
+
+
+  /* ── SECCIÓN 2: QUIEN SOY ── */
+  .quien-soy {
+    padding: 40px 20px;
+  }
+
+  .quien-soy p {
+    font-size: 16px !important;
+  }
+
+
+  /* ── SECCIÓN 3: PROYECTOS ── */
+  .proyectos {
+    padding: 20px 15px;
+  }
+
+  .tarjeta {
+    float: none;        
+    width: 100%;         
+    margin-right: 0;
+    margin-bottom: 20px; 
+  }
+
+  .cuerpo-tarjeta p {
+    font-size: 15px;
+  }
+
+
+  /* ── FOOTER ── */
+  footer {
+    text-align: center;
+    padding: 20px;
+  }
+
+}
