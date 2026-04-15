@@ -12,6 +12,8 @@
   --beige: #e8d5c0;
   --green-soft: #9db5a3;
   --white: #ffffff;
+  --pink-soft:#f7c6c7;
+  
 }
 
 body {
@@ -97,6 +99,9 @@ body {
 .proyecto-3 {
   background: var(--beige);
 }
+
+.proyecto-4 {
+  background : var (--pink-soft);
 
 /* NUMERO */
 .numero-proyecto {
