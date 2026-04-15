@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factura</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+
+
+<div class="Factura">
+
+
+    <!-- ENCABEZADO -->
+    <div class="encabezado">
+        <div class="logo-area">
+            <div class="logo-icono">
+                <div class="caja">
+                    <svg width="100" height="100" viewBox="0 0 100 100" fill="none" stroke="#222" stroke-width="2">
+                        <polygon points="40,20 64,33 40,46 16,33" />
+                        <polyline points="16,33 16,54 40,67 64,54 64,33" />
+                        <polyline points="40,46 40,67" />
+                    </svg>
+                </div>
+            </div>
+            <div>
+                <div class="n">NOMBRE DE LA EMPRESA</div>
+                <div class="eslogan">ESPACIO PARA EL ESLOGAN DE LA MARCA</div>
+               
+            </div>
+            </div>
+ 
+
+
+     <div class="titulo-factura">FACTURA</div></div>
+
+
+    <!-- INFORMACION -->
+    <div class="info">
+        <div class="notas">
+            <div class="nota-titulo">NOTAS ADICIONALES</div>
+            <div class="texto-nota">
+                <br>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi perferendis, laborum harum
+                aliquam quisquam sint cupiditate nisi, at temporibus dolor quia adipisci ad aspernatur
+                distinctio recusandae est, iure vero odit?
+            </div>
+        </div>
+
+
+        <div class="cliente">
+            <div class="cliente-label">FACTURA A :</div>
+            <br>
+            <br>
+            <strong>JOHN SMITH</strong>
+            <div>123 Calle Green Lake<br>Ciudad Estado<br>Pais</div>
+        </div>
+
+
+        <div class="fechas">
+            <div class="fecha-bloque">
+                <div class="fecha-label">FECHA DE LA FACTURA</div>
+       
+          <div class="fecha-valor">03.01.2018</div>
+            </div>
+            <div class="fecha-bloque">
+                <div class="fecha-label">FECHA DE VENCIMIENTO</div>
+                <div class="fecha-valor">03.12.2018</div>
+            </div>
+            <div class="fecha-bloque">
+                <div class="fecha-label">FACTURA #</div>
+                <div class="fecha-valor">34756</div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- TABLA -->
+    <div class="tabla-A">
+        <table>
+            <thead>
+                <tr>
+                    <th class="num-fila">#</th>
+                    <th class="desc">DESCRIPCION DEL PRODUCTO</th>
+                    <th class="prec">PRECIO</th>
+                    <th class="cant">CANTIDAD</th>
+                    <th class="total">TOTAL</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                
+                <tr>
+                    <td class="num-fila">1</td>
+                    <td class="desc">Item 1</td>
+                    <td class="pre">$30.50</td>
+                    <td class="can">3</td>
+                    <td class="totl">$91.50</td>
+                </tr>
+                <tr>
+                    <td class="num-fila">2</td>
+                    <td class="desc">Item 2</td>
+                    <td class="pre">$50.00</td>
+                    <td class="can">1</td>
+                    <td class="totl">$50.00</td>
+                </tr>
+                <tr>
+                    <td class="num-fila">3</td>
+                    <td class="desc">Item 3</td>
+                    <td class="pre">$70.00</td>
+                    <td class="can">5</td>
+                    <td class="totl">$350.00</td>
+                </tr>
+                <tr>
+                    <td class="num-fila">4</td>
+                    <td class="desc">Item 4</td>
+                    <td class="pre">$20.00</td>
+                    <td class="can">2</td>
+                    <td class="totl">$40.00</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+ 
+
+
+<!--  ULTIMA PARTE -->
+<div class="seccion-final">
+
+  <!-- IZQUIERDA: terminos y metodo de pago -->
+  <div class="terfinal">
+    <div class="terminos">
+      <h3>TERMINOS Y CONDICIONES</h3>
+      <br>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit iusto debitis ducimus natus quasi
+      consequatur, aliquam assumenda adipisci repellat.</p>
+    </div>
+
+    <br>
+
+    <div class="metodo-pago1">
+      <h3>MÉTODO DE PAGO</h3>
+      
+      <div class="opciones-pago">
+        <span>Cash/Debit</span>
+        <span>Cheque</span>
+        <span>Credit card</span>
+      </div>
+      <div class="campo-pago">
+        Cardholder's Name: <input type="text" class="input-pago">
+      </div>
+      <div class="campo-pago">
+        Card #: <input type="text" class="input-pago input-mini">
+        &nbsp; Exp: <input type="text" class="input-pago input-mini">
+        &nbsp; CV: <input type="text" class="input-pago input-mini">
+      </div>
+    </div>
+  </div>
+
+<div class="totalfin">
+  <div class="totales-izq">
+    <p>SUBTOTAL</p>
+    <p>IMPUESTOS</p>
+    <p>ENVIO</p>
+    <p>DESCUENTO</p>
+    <h3>TOTAL</h3>
+  </div>
+
+  <div class="totales-der">
+    <p>$631.30</p>
+    <p>$53.78</p>
+    <p>$12.00</p>
+    <p>$315.00</p>
+    <h2>$592.28</h2>
+
+    <div class="firma-area">
+      <div class="firma-linea">FIRMA</div>
+    </div>
+  </div>
+</div>
