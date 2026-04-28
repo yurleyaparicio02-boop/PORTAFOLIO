@@ -67,7 +67,7 @@ main {
 
 .imagen-inicio {
   float: left;
-  width: 50%;
+  width: 48%;
   text-align: center;
 }
 
@@ -78,7 +78,7 @@ main {
 
 .texto-inicio {
   float: right;
-  width: 50%;
+  width: 48%;
 }
 
 .texto-inicio h1 {
@@ -212,13 +212,13 @@ footer {
   background: #2c2c2c;
   color: #aaa;
   text-align: right;
-  padding: 20px 65px 20px 0px;
+  padding: 20px 65px 20px 20px;
   font-size: 13px;
 }
 
 /* ── RESPONSIVE ── */
 
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
   nav {
     padding: 10px 20px;
     text-align: center;
@@ -295,10 +295,11 @@ footer {
   footer {
     text-align: center;
     padding: 15px;
+    margin-bottom: 20px;
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 600px) {
  .tarjeta {
   width: 100%;
   margin-right: 0;
