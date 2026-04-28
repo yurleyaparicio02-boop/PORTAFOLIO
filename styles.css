@@ -1,158 +1,171 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-/* ===== COLORES ===== */
 :root {
-  --brown-dark: #5a3825;
-  --brown: #8b5e3c;
-  --cream: #f5e6d3;
-  --beige: #e8d5c0;
-  --green-soft: #9db5a3;
-  --white: #ffffff;
-  --pink-soft:#f7c6c7;
-  
+    --bg:       #f5ede0;
+    --header:   #3b1f0e;
+    --accent:   #8b5e3c;
+    --card-bg:  #fff9f3;
+    --text:     #3b1f0e;
+    --overlay:  rgba(59, 31, 14, 0.78);
 }
 
 body {
-  font-family: 'Georgia', serif;
-  background-color: var(--cream);
-  color: var(--brown-dark);
+    font-family: 'Lato', sans-serif;
+    background: var(--bg);
+    color: var(--text);
 }
 
-/* CONTENEDOR */
-.container {
-  width: 90%;
-  max-width: 1000px;
-  margin: auto;
-}
-
-/* ===== HEADER ===== */
+/* ── HEADER ── */
 .header {
-  text-align: center;
-  padding: 40px 0; 
+    background: var(--bg);
+    text-align: center;
+    padding: 3rem 1rem 1.5rem;
+    border-bottom: 2px solid var(--accent);
 }
-
 .titulo {
-  font-size: 37px; 
-  color: var(--brown-dark);
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    color: var(--header);
+    letter-spacing: .12em;
 }
-
 .subtitulo {
-  color: var(--brown);
+    font-size: .9rem;
+    color: var(--accent);
+    letter-spacing: .25em;
+    text-transform: uppercase;
+    margin-top: .4rem;
 }
 
-/* ===== HERO ===== */
+/* ── HERO ── */
 .hero {
-  text-align: center;
-  margin-bottom: 32px; 
-  color: var(--brown);
+    text-align: center;
+    padding: 3rem 1rem;
+    background: var(--bg);
+}
+.hero h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 4vw, 2.2rem);
+    color: var(--accent);
+}
+.hero p {
+    margin-top: .5rem;
+    font-weight: 300;
+    color: var(--text);
+    letter-spacing: .05em;
 }
 
-/* ===== TITULO ===== */
+/* ── MAIN / GALERÍA ── */
+.main { padding: 2rem 1.5rem 5rem; }
+.container { max-width: 1100px; margin: 0 auto; }
+
 .section-title {
-  margin: 32px 0 16px; 
-  color: var(--brown-dark);
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    color: var(--header);
+    margin-bottom: 2.5rem;
+    position: relative;
+    display: inline-block;
+}
+.section-title::after {
+    content: '';
+    display: block;
+    height: 3px;
+    background: var(--accent);
+    margin-top: 6px;
+    border-radius: 2px;
 }
 
-/* ===== GALERIA ===== */
+/* ── GRID ── */
 .galeria {
-  display: flex;
-  flex-direction: column;
-  gap: 24px; 
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 2rem;
 }
 
-/* ===== TARJETAS ===== */
+/* ── TARJETA ── */
 .proyecto-card {
-  display: flex;
-  background: var(--white);
-  border-radius: 15px;
-  overflow: hidden;
-  text-decoration: none;
-  color: inherit;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  transition: 0.3s;
-}
-
-.proyecto-card:hover {
-  transform: translateY(-4px);
-}
-
-/* ===== IMAGEN ===== */
-.proyecto-imagen {
-  width: 120px;
-  height: 120px;
-  position: relative;
-}
-
-/* COLORES DE PROYECTOS */
-.proyecto-1 {
-  background: var(--brown);
-}
-
-.proyecto-2 {
-  background: var(--green-soft);
-}
-
-.proyecto-3 {
-  background: var(--beige);
-}
-
-.proyecto-4 {
-  background : var (--pink-soft);
-
-/* NUMERO */
-.numero-proyecto {
-  position: absolute;
-  top: 8px;
-  left: 8px;
-  background: var(--cream);
-  color: var(--brown-dark);
-  padding: 4px 8px;
-  border-radius: 8px;
-  font-size: 11px; 
-}
-
-/* SIN OVERLAY */
-.overlay {
-  display: none;
-}
-
-/* ===== INFO ===== */
-.proyecto-info {
-  padding: 16px; 
-}
-
-.proyecto-info h3 {
-  color: var(--brown-dark);
-  margin-bottom: 5px;
-}
-
-.proyecto-info p {
-  font-size: 14px; 
-  margin-bottom: 8px;
-  color: var(--brown);
-}
-
-/* ===== ETIQUETA ===== */
-.etiqueta {
-  background: var(--green-soft);
-  color: var(--brown-dark);
-  padding: 4px 10px;
-  border-radius: 20px;
-  font-size: 11px; 
-}
-
-/* ===== RESPONSIVE ===== */
-@media (max-width: 768px) {
-  .proyecto-card {
+    text-decoration: none;
+    color: inherit;
+    border-radius: 14px;
+    overflow: hidden;
+    background: var(--card-bg);
+    box-shadow: 0 4px 20px rgba(59,31,14,.10);
+    transition: transform .35s ease, box-shadow .35s ease;
+    display: flex;
     flex-direction: column;
-  }
+}
+.proyecto-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 36px rgba(59,31,14,.18);
+}
 
-  .proyecto-imagen {
+/* ── IMAGEN ── */
+.proyecto-imagen {
     width: 100%;
-    height: 140px;
-  }
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+}
+.proyecto-1 { background: linear-gradient(135deg,#8b5e3c,#c9956a); }
+.proyecto-2 { background: linear-gradient(135deg,#4a7c8b,#7ab8c9); }
+.proyecto-3 { background: linear-gradient(135deg,#5a7a4a,#8bb87a); }
+.proyecto-4 { background: linear-gradient(135deg,#7a4a6a,#b87aaa); }
+
+/* ── OVERLAY ── */
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: var(--overlay);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: .6rem;
+    opacity: 0;
+    transition: opacity .35s ease;
+}
+.proyecto-card:hover .overlay { opacity: 1; }
+
+.overlay-icon {
+    font-size: 2.4rem;
+    filter: drop-shadow(0 2px 6px rgba(0,0,0,.4));
+}
+.overlay-text {
+    color: #fff;
+    font-size: .85rem;
+    font-weight: 700;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+}
+.overlay-btn {
+    margin-top: .5rem;
+    padding: .45rem 1.4rem;
+    border: 2px solid #fff;
+    border-radius: 30px;
+    color: #fff;
+    font-size: .8rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    transition: background .25s, color .25s;
+}
+.proyecto-card:hover .overlay-btn:hover {
+    background: #fff;
+    color: var(--header);
+}
+
+/* ── INFO ── */
+.proyecto-info {
+    padding: 1.1rem 1.3rem 1.4rem;
+}
+.proyecto-info h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    color: var(--header);
+    margin-bottom: .35rem;
+}
+.proyecto-info p {
+    font-size: .85rem;
+    font-weight: 300;
+    line-height: 1.5;
+    color: #6b4c30;
 }
