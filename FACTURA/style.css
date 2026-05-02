@@ -10,8 +10,8 @@ body {
     background-color: #bebdbd;
     display: flex;
     justify-content: center;
-    align-items: flex-start; /* ← era "center", causaba que no empezara desde arriba */
-    min-height: 100vh;       /* ← era "100%" sin unidad, no funcionaba bien */
+    align-items: flex-start; 
+    min-height: 100vh;       
     padding: 40px;
 }
 
