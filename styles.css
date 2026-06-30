@@ -4,6 +4,7 @@
   --ink-soft: #9A7E87;
   --rose: #D88C9A;
   --rose-light: #F3D9DE;
+  --card-bg: #FFFFFF;
   --line: #ECD9DC;
 }
 
@@ -28,7 +29,7 @@ body{
 
 .board{
   width: 100%;
-  max-width: 480px;
+  max-width: 720px;
 }
 
 .board__head{
@@ -62,89 +63,78 @@ h1{
   margin: 0 auto;
 }
 
-.list{
+.grid{
   list-style: none;
   margin: 0;
   padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
 }
 
-.item{
-  border-bottom: 1px solid var(--line);
-}
-
-.item a{
+.card a{
   display: flex;
-  align-items: baseline;
-  gap: 12px;
-  padding: 20px 4px;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 32px 16px;
   text-decoration: none;
   color: var(--ink);
+  background: var(--card-bg);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  box-shadow: 0 4px 16px rgba(216, 140, 154, 0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
-.item__bullet{
-  font-size: 11px;
+.card__bullet{
+  font-size: 20px;
   color: var(--rose);
-  flex-shrink: 0;
-  transition: transform 0.3s ease;
+  transition: transform 0.35s ease;
 }
 
-.item__name{
+.card__name{
   font-family: 'Cormorant Garamond', serif;
   font-weight: 600;
-  font-size: 22px;
+  font-size: 19px;
   letter-spacing: 0.01em;
-  transition: color 0.2s ease;
+  text-align: center;
 }
 
-.item__line{
-  flex-grow: 1;
-  height: 1px;
-  background: var(--line);
-  transition: background 0.25s ease;
-}
-
-.item__arrow{
-  font-size: 13px;
+.card__arrow{
+  font-size: 12px;
   color: var(--rose-light);
   opacity: 0;
-  transform: translateX(-4px);
+  transform: translateY(-2px);
   transition: opacity 0.25s ease, transform 0.25s ease;
 }
 
-.item a:hover,
-.item a:focus-visible{
+.card a:hover,
+.card a:focus-visible{
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(216, 140, 154, 0.18);
+  border-color: var(--rose-light);
   outline: none;
 }
 
-.item a:hover .item__bullet,
-.item a:focus-visible .item__bullet{
+.card a:hover .card__bullet,
+.card a:focus-visible .card__bullet{
   transform: rotate(90deg);
 }
 
-.item a:hover .item__name,
-.item a:focus-visible .item__name{
-  color: var(--rose);
-}
-
-.item a:hover .item__line,
-.item a:focus-visible .item__line{
-  background: var(--rose-light);
-}
-
-.item a:hover .item__arrow,
-.item a:focus-visible .item__arrow{
+.card a:hover .card__arrow,
+.card a:focus-visible .card__arrow{
   opacity: 1;
-  transform: translateX(0);
-  color: var(--rose);
+  transform: translateY(0);
 }
 
-.item a:focus-visible .item__name{
+.card a:focus-visible .card__name{
   text-decoration: underline;
   text-underline-offset: 4px;
 }
 
 .board__foot{
-  margin-top: 44px;
+  margin-top: 40px;
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
   font-size: 14px;
@@ -152,6 +142,14 @@ h1{
   text-align: center;
 }
 
+@media (max-width: 640px){
+  .grid{ grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 420px){
+  .grid{ grid-template-columns: 1fr; }
+}
+
 @media (prefers-reduced-motion: reduce){
-  .item__bullet, .item__name, .item__line, .item__arrow{ transition: none; }
+  .card a, .card__bullet, .card__arrow{ transition: none; }
 }
