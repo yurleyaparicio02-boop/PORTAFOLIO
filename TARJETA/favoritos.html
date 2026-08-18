@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Favoritos</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="pagina-galeria">
+
+  <div class="galeria-wrap">
+    <div class="galeria-header">
+      <div>
+        <p class="cart">Carné · Identificación</p>
+        <h1 id="titulo">Favoritos</h1>
+      </div>
+      <a class="fav-link" href="index.html">← Volver a la galería</a>
+    </div>
+
+    <div class="galeria-grid" id="grid"></div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    function tarjetaFavHTML(user) {
+      const genero = user.gender === "male" ? "Masculino" : "Femenino";
+      const uuid = user.login.uuid;
+
+      return `
+        <a class="mini-badge" href="perfil.html?uuid=${uuid}">
+          <span class="fav-star activa" data-uuid="${uuid}" onclick="quitarFavorito(event, this)">★</span>
+          <img class="mini-photo" src="${user.picture.medium}" alt="Foto de perfil">
+          <p class="mini-name">${user.name.first} ${user.name.last}</p>
+          <div class="mini-pi">
+            <span class="mini-pi">${genero}</span>
+            <span class="mini-pi">${user.dob.age} años</span>
+          </div>
+        </a>`;
+    }
+
+    function quitarFavorito(event, el) {
+      event.preventDefault();
+      event.stopPropagation();
+      const uuid = el.dataset.uuid;
+      const user = obtenerUsuarioPorUuid(uuid);
+
+      if (user) alternarFavorito(user);
+      pintar();
+    }  
+
+    function pintar() {
+      const lista = obtenerListaFavoritos();
+      const grid = document.getElementById("grid");
+      document.getElementById("titulo").textContent = `${lista.length} favoritos`;
+
+      if (lista.length === 0) {
+        grid.innerHTML = `<p class="empty-state" style="grid-column:1/-1;">Aún no tienes favoritos.<br>Toca la estrella ★ en una identificación para guardarla aquí.</p>`;
+        return;
+      }
+
+      grid.innerHTML = lista.map(tarjetaFavHTML).join("");
+    }
+
+    document.addEventListener("DOMContentLoaded", pintar);
+  </script>
+</body>
+</html>

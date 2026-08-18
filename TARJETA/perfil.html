@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Expediente completo</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.18.1/axios.js"></script>
+</head>
+<body>
+
+  <div class="tarjeta">
+    <div class="tarjeta-top">
+      <a class="back-link" href="index.html">← Volver a la galería</a>
+      <span class="click-v" id="clickv">EXP. N/D</span>
+    </div>
+
+    <div id="contenido">
+      <p class="loading">Recuperando expediente…</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    function pintarexpe(user) {
+      const contenido = document.getElementById("contenido");
+      const uuid = user.login.uuid;
+
+      document.getElementById("clickv").textContent =
+        `EXP. ${user.login.username.toUpperCase()}`;
+
+      // Estrella de favorito en la barra superior
+      const activa = esFavorito(uuid) ? "activa" : "";
+      const simbolo = esFavorito(uuid) ? "★" : "☆";
+      document.querySelector(".tarjeta-top").insertAdjacentHTML("beforeend", `
+        <span class="fav-star-dossier ${activa}" id="favDossier" onclick="clicEstrellaDossier('${uuid}')">
+          <span id="favDossierIcono">${simbolo}</span> Favorito
+        </span>
+      `);
+
+      contenido.innerHTML = `
+        <div class="tarjeta-header">
+          <img class="tarjeta-photo" src="${user.picture.large}" alt="Foto de perfil">
+          <div>
+            <p class="tarjeta-name">${user.name.title} ${user.name.first} ${user.name.last}</p>
+            <p class="tarjeta-loc">${user.location.city}, ${user.location.state}, ${user.location.country}</p>
+          </div>
+        </div>
+
+        <div class="tarje-com" style="margin:0 26px 0;"></div>
+
+        <div class="tarjeta-body" style="margin-top:16px;">
+          ${fila("Email", `<span class="link">${user.email}</span>`)}
+          ${fila("Celular", user.cell)}
+          ${fila("Teléfono", user.phone)}
+          ${fila("Edad", user.dob.age)}
+          ${fila("Fecha de nacimiento", formatearFecha(user.dob.date))}
+          ${fila("Género", user.gender === "male" ? "Masculino" : "Femenino")}
+          ${fila("País", user.location.country)}
+          ${fila("Departamento", user.location.state)}
+          ${fila("Ciudad", user.location.city)}
+          ${fila("Calle", `${user.location.street.name} ${user.location.street.number}`)}
+          ${fila("Coordenadas", `<a class="link" target="_blank" href="https://www.google.com/maps/search/?api=1&query=${user.location.coordinates.latitude},${user.location.coordinates.longitude}">${user.location.coordinates.latitude}, ${user.location.coordinates.longitude}</a>`)}
+          ${fila("Nacionalidad", user.nat)}
+          ${fila("Código postal", user.location.postcode)}
+          ${fila("Registrado", formatearFecha(user.registered.date))}
+          ${fila("Usuario", `@${user.login.username}`)}
+        </div>
+      `;
+    }
+
+    function clicEstrellaDossier(uuid) {
+      const lista = obtenerListaGuardada() || [];
+      let user = lista.find(u => u.login.uuid === uuid) || obtenerUsuarioPorUuid(uuid);
+      if (!user) return;
+
+      const quedoFavorito = alternarFavorito(user);
+      document.getElementById("favDossier").classList.toggle("activa", quedoFavorito);
+      document.getElementById("favDossierIcono").textContent = quedoFavorito ? "★" : "☆";
+    }
+
+    function fila(label, valorHtml) {
+      return `
+        <div class="field-row">
+          <span class="field-label">${label}</span>
+          <span class="field-value">${valorHtml}</span>
+        </div>`;
+    }
+
+    function formatearFecha(fechaISO) {
+      const f = new Date(fechaISO);
+      return f.toLocaleDateString("es-CO", { year: "numeric", month: "long", day: "numeric" });
+    }
+
+    async function iniciar() {
+      const params = new URLSearchParams(window.location.search);
+      const uuidParam = params.get("uuid");
+      const idParam = params.get("id");
+
+      let user = uuidParam
+        ? obtenerUsuarioPorUuid(uuidParam)
+        : obtenerUsuarioPorId(Number(idParam));
+
+      if (!user) {
+        document.getElementById("contenido").innerHTML = `
+          <p class="loading">
+            No encontramos esa identificación.<br><br>
+            <a class="back-link" style="color:#7B2D26;" href="index.html">← Vuelve a la galería</a>
+          </p>`;
+        return;
+      }
+
+      pintarexpe(user);
+    }
+
+    document.addEventListener("DOMContentLoaded", iniciar);
+  </script>
+</body>
+</html>

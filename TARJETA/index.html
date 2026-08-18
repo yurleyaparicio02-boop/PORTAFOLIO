@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galería de identificaciones</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.18.1/axios.js"></script>
+</head>
+<body class="pagina-galeria">
+
+  <div class="galeria-wrap">
+    <div class="galeria-header">
+      <div>
+        <p class="cart">Carné · Identificación</p>
+        <h1 id="titulo">Generando 100 identificaciones…</h1>
+      </div>
+      <div style="display:flex; gap:10px;">
+  <a class="boton-btn boton-btn-sm" href="favoritos.html">
+    ★ Ver favoritos
+  </a>
+
+  <button class="boton-btn boton-btn-sm" id="bott">
+    <span class="mtit"></span>
+    Generar 100 nuevas
+  </button>
+</div>
+    </div>
+
+    <div class="galeria-grid" id="grid">
+      <p class="loading">Cargando…</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    function tarjetaHTML(user, id) {
+      const genero = user.gender === "male" ? "Masculino" : "Femenino";
+      const uuid = user.login.uuid;
+      const activa = esFavorito(uuid) ? "activa" : "";
+      const simbolo = esFavorito(uuid) ? "★" : "☆";
+
+      return `
+        <a class="mini-badge" href="perfil.html?id=${id}">
+          <span class="fav-star ${activa}" data-uuid="${uuid}" onclick="clicEstrella(event, this)">${simbolo}</span>
+          <img class="mini-photo" src="${user.picture.medium}" alt="Foto de perfil">
+          <p class="mini-name">${user.name.first} ${user.name.last}</p>
+          <div class="mini-pi">
+            <span class="mini-pi">${genero}</span>
+            <span class="mini-pi">${user.dob.age} años</span>
+          </div>
+        </a>`;
+    }
+
+    function clicEstrella(event, el) {
+      event.preventDefault();   
+      event.stopPropagation(); 
+
+      const uuid = el.dataset.uuid;
+      const lista = obtenerListaGuardada() || [];
+      const user = lista.find(u => u.login.uuid === uuid);
+      if (!user) return;
+
+      const quedoFavorito = alternarFavorito(user);
+      el.classList.toggle("activa", quedoFavorito);
+      el.textContent = quedoFavorito ? "★" : "☆";
+    }
+  
+    function pintarGrid(lista) {
+      const grid = document.getElementById("grid");
+      document.getElementById("titulo").textContent = `${lista.length} identificaciones`;
+      grid.innerHTML = lista.map((user, id) => tarjetaHTML(user, id)).join("");
+    }
+
+    async function iniciar() {
+      document.getElementById("grid").innerHTML = `<p class="loading">Cargando…</p>`;
+      const lista = await obtenerListaNueva();
+      pintarGrid(lista);
+    }
+
+    document.addEventListener("DOMContentLoaded", iniciar);
+    document.getElementById("bott").addEventListener("click", iniciar);
+  </script>
+</body>
+</html>
